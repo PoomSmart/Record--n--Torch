@@ -1,0 +1,10 @@
+Package: org.thebigboss.recordntorch
+Name: Record 'n' Torch
+Pre-Depends: mobilesubstrate, preferenceloader, firmware (>= 5.0), gsc.camera-flash, gsc.still-camera
+Version: 1.7
+Architecture: iphoneos-arm
+Description: Toggle Torch while recording video.
+Author: PoomSmart
+Maintainer: PoomSmart
+Section: Tweaks
+Icon: file:///Library/PreferenceLoaders/Preferences/TFV/TFV@2x.png
