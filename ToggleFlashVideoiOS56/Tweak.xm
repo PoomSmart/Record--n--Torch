@@ -1,8 +1,7 @@
 #import "../TFV.h"
-#import <objc/runtime.h>
 
-static PLCameraController *cameraInstance(){
-    return (PLCameraController *)[objc_getClass("PLCameraController") sharedInstance];
+static PLCameraController *cameraInstance() {
+    return (PLCameraController *)[NSClassFromString(@"PLCameraController") sharedInstance];
 }
 
 #define shouldRun() checkModeAndDevice(cameraInstance().cameraMode, cameraInstance().cameraDevice)

@@ -1,8 +1,8 @@
 #import "../TFV.h"
-#import <objc/runtime.h>
+#import <UIKit/UIView+Private.h>
 
 static CAMCaptureController *cameraInstance(){
-    return (CAMCaptureController *)[objc_getClass("CAMCaptureController") sharedInstance];
+    return (CAMCaptureController *)[NSClassFromString(@"CAMCaptureController") sharedInstance];
 }
 
 #define shouldRun() checkModeAndDevice(cameraInstance().cameraMode, cameraInstance().cameraDevice)

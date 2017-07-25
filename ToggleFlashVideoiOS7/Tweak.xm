@@ -1,8 +1,8 @@
 #import "../TFV.h"
-#import <objc/runtime.h>
+#import <UIKit/UIView+Private.h>
 
-static PLCameraController *cameraInstance(){
-    return (PLCameraController *)[objc_getClass("PLCameraController") sharedInstance];
+static PLCameraController *cameraInstance() {
+    return (PLCameraController *)[NSClassFromString(@"PLCameraController") sharedInstance];
 }
 
 #define shouldRun() checkModeAndDevice(cameraInstance().cameraMode, cameraInstance().cameraDevice)
@@ -15,8 +15,7 @@ BOOL override;
 
 - (void)_updateHiddenViewsForButtonExpansionAnimated: (BOOL)animated {
     %orig;
-    BOOL isCapturingVideo = [cameraInstance() isCapturingVideo];
-    if (isCapturingVideo && shouldRun())
+    if ([cameraInstance() isCapturingVideo] && shouldRun())
         [self.flashButton pl_setHidden:NO animated:YES];
 }
 
@@ -30,8 +29,7 @@ BOOL override;
 
 - (void)_setFlashButtonExpanded: (BOOL)expand {
     %orig;
-    BOOL isCapturingVideo = [cameraInstance() isCapturingVideo];
-    if (isCapturingVideo && shouldRun())
+    if ([cameraInstance() isCapturingVideo] && shouldRun())
         [self.elapsedTimeView pl_setHidden:expand animated:YES];
 }
 
@@ -40,8 +38,7 @@ BOOL override;
 %hook PLCameraView
 
 - (BOOL)_flashButtonShouldBeHidden {
-    BOOL isCapturingVideo = [cameraInstance() isCapturingVideo];
-    override = isCapturingVideo && shouldRun();
+    override = [cameraInstance() isCapturingVideo] && shouldRun();
     BOOL orig = %orig;
     override = NO;
     return orig;

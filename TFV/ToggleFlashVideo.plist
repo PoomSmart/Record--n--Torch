@@ -33,7 +33,7 @@
         <key>label</key>
         <string>Enabled</string>
         <key>PostNotification</key>
-        <string>com.PS.ToggleFlashVideo.settingschanged</string>
+        <string>com.PS.ToggleFlashVideo/ReloadPrefs</string>
       </dict>
       <dict>
         <key>cell</key>

@@ -10,3 +10,5 @@ Supported iDevices
 - iPod touch 5G (32/64 GB) or higher
 
 Compatible with iOS 5+
+
+MIT License.

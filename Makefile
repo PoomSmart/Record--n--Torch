@@ -1,11 +1,10 @@
-TARGET = iphone:latest
-DEBUG = 0
-PACKAGE_VERSION = 1.7.8
+PACKAGE_VERSION = 1.7.9
+TARGET = iphone:clang:latest:5.0
 
 include $(THEOS)/makefiles/common.mk
 
 AGGREGATE_NAME = ToggleFlashVideo
-SUBPROJECTS = ToggleFlashVideoiOS56 ToggleFlashVideoiOS7 ToggleFlashVideoiOS8 ToggleFlashVideoiOS9 ToggleFlashVideoiOS10
+SUBPROJECTS = ToggleFlashVideoiOS56 ToggleFlashVideoiOS7 ToggleFlashVideoiOS8 ToggleFlashVideoiOS910
 
 include $(THEOS_MAKE_PATH)/aggregate.mk
 
