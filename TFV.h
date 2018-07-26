@@ -1,3 +1,4 @@
+#define UNRESTRICTED_AVAILABILITY
 #import "../PS.h"
 
 #define isBackCamera(device) (device != 1)

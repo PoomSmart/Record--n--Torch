@@ -1,17 +1,11 @@
-PACKAGE_VERSION = 1.7.9
-TARGET = iphone:clang:latest:5.0
+PACKAGE_VERSION = 1.7.10
 
 include $(THEOS)/makefiles/common.mk
 
 AGGREGATE_NAME = ToggleFlashVideo
-SUBPROJECTS = ToggleFlashVideoiOS56 ToggleFlashVideoiOS7 ToggleFlashVideoiOS8 ToggleFlashVideoiOS910
+SUBPROJECTS = ToggleFlashVideoiOS56 ToggleFlashVideoiOS7 ToggleFlashVideoiOS8 ToggleFlashVideoiOS9AB ToggleFlashVideoLoader
 
 include $(THEOS_MAKE_PATH)/aggregate.mk
-
-TWEAK_NAME = ToggleFlashVideo
-ToggleFlashVideo_FILES = Tweak.xm
-
-include $(THEOS_MAKE_PATH)/tweak.mk
 
 internal-stage::
 	$(ECHO_NOTHING)mkdir -p $(THEOS_STAGING_DIR)/Library/PreferenceLoader/Preferences$(ECHO_END)

@@ -1,10 +1,13 @@
-Package: org.thebigboss.recordntorch
+Package: com.spicat.recordntorch
 Name: Record 'n' Torch
-Pre-Depends: mobilesubstrate, preferenceloader, firmware (>= 5.0), gsc.camera-flash, gsc.still-camera
+Depends: mobilesubstrate, preferenceloader, firmware (>= 5.0), gsc.camera-flash, gsc.still-camera
+Conflicts: org.thebigboss.recordntorch
+Replaces: org.thebigboss.recordntorch
+Provides: org.thebigboss.recordntorch
 Version: 1.0.0
 Architecture: iphoneos-arm
 Description: Toggle Torch while recording video.
-Author: PoomSmart
-Maintainer: PoomSmart
+Author: SpicaT
+Maintainer: SpicaT
 Section: Tweaks
 Icon: file:///Library/PreferenceLoaders/Preferences/TFV/TFV@2x.png
