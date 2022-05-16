@@ -1,16 +1,6 @@
 #import "Header.h"
 #import "../PSHeader/CameraApp/CAMViewfinderViewController.h"
 #import "../PSHeader/CameraMacros.h"
-#import "../PSPrefs/PSPrefs.x"
-
-NSString *tweakIdentifier = @"com.PS.ToggleFlashVideo";
-
-BOOL TFVNative;
-
-HaveCallback() {
-    GetPrefs();
-    GetBool(TFVNative, @"TFVNative", YES);
-}
 
 %hook CAMViewfinderViewController
 
@@ -18,6 +8,10 @@ HaveCallback() {
     %orig;
     if (checkModeAndDevice(self._currentMode, self._currentDevice))
         self._flashButton.allowsAutomaticFlash = NO;
+}
+
+- (BOOL)_shouldShowIndicatorOfType:(NSUInteger)type forGraphConfiguration:(CAMCaptureGraphConfiguration *)configuration {
+    return type == 0 && checkModeAndDevice(configuration.mode, configuration.device) && ([self._captureController isCapturingVideo] || [self._captureController isCapturingTimelapse]) ? YES : %orig;
 }
 
 - (BOOL)_shouldHideFlashButtonForGraphConfiguration:(CAMCaptureGraphConfiguration *)configuration {
@@ -31,10 +25,6 @@ HaveCallback() {
 %end
 
 %ctor {
-    HaveObserver();
-    callback();
-    if (TFVNative) {
-        openCamera10();
-        %init;
-    }
+    openCamera10();
+    %init;
 }
