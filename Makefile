@@ -1,5 +1,6 @@
 PACKAGE_VERSION = 1.8.1
 TARGET = iphone:clang:latest:12.0
+INSTALL_TARGET_PROCESSES = Camera
 
 include $(THEOS)/makefiles/common.mk
 

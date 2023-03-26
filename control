@@ -1,12 +1,14 @@
 Package: com.ps.recordntorch
 Name: Record 'n' Torch (iOS 12+)
-Depends: mobilesubstrate, firmware (>= 12.0), gsc.camera-flash, gsc.still-camera
+Depends: mobilesubstrate, firmware (>= 12.0), gsc.camera-flash
 Conflicts: org.thebigboss.recordntorch, com.spicat.recordntorch
 Replaces: org.thebigboss.recordntorch, com.spicat.recordntorch
 Provides: org.thebigboss.recordntorch, com.spicat.recordntorch
 Version: 1.0.0
 Architecture: iphoneos-arm
-Description: Toggle Torch while recording video.
+Description: Toggle torch while recording video.
 Author: PoomSmart
 Maintainer: PoomSmart
 Section: Tweaks
+Depiction: https://poomsmart.github.io/repo/depictions/recordntorch.html
+SileoDepiction: https://poomsmart.github.io/repo/sileodepictions/recordntorch.json
