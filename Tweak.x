@@ -1,6 +1,6 @@
 #import "Header.h"
-#import "../PSHeader/CameraApp/CAMViewfinderViewController.h"
-#import "../PSHeader/CameraMacros.h"
+#import <PSHeader/CameraApp/CAMViewfinderViewController.h>
+#import <PSHeader/CameraMacros.h>
 
 %hook CAMViewfinderViewController
 
@@ -20,6 +20,18 @@
 
 - (void)_updateTopBarStyleForGraphConfiguration:(CAMCaptureGraphConfiguration *)configuration capturing:(BOOL)capturing animated:(BOOL)animated {
     %orig(configuration, isBackCamera(configuration.device) ? NO : capturing, animated);
+}
+
+BOOL isFlashIndicator = NO;
+
+- (void)_handleFlashIndicator {
+    isFlashIndicator = YES;
+    %orig;
+    isFlashIndicator = NO;
+}
+
+- (void)_handleUserChangedToFlashMode:(NSInteger)mode {
+    %orig(mode == 2 && isFlashIndicator ? 1 : mode);
 }
 
 %end
