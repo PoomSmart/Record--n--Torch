@@ -1,5 +1,5 @@
 Package: com.ps.recordntorch-rootless
-Name: Record 'n' Torch
+Name: Record 'n' Torch (Rootless)
 Depends: mobilesubstrate, firmware (>= 14.0), gsc.camera-flash
 Version: 1.0.0
 Architecture: iphoneos-arm
