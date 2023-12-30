@@ -1,5 +1,5 @@
 TARGET = iphone:clang:latest:12.0
-PACKAGE_VERSION = 1.8.1
+PACKAGE_VERSION = 1.8.2
 
 INSTALL_TARGET_PROCESSES = Camera
 

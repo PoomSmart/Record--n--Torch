@@ -2,6 +2,8 @@
 #import <PSHeader/CameraApp/CAMViewfinderViewController.h>
 #import <PSHeader/CameraMacros.h>
 
+BOOL isFlashIndicator = NO;
+
 %hook CAMViewfinderViewController
 
 - (void)_startCapturingVideoWithRequest:(id)arg1 {
@@ -22,16 +24,22 @@
     %orig(configuration, isBackCamera(configuration.device) ? NO : capturing, animated);
 }
 
-BOOL isFlashIndicator = NO;
-
 - (void)_handleFlashIndicator {
     isFlashIndicator = YES;
     %orig;
     isFlashIndicator = NO;
 }
 
-- (void)_handleUserChangedToFlashMode:(NSInteger)mode {
-    %orig(mode == 2 && isFlashIndicator ? 1 : mode);
+- (void)_handleUserChangedToFlashMode:(NSInteger)flashMode {
+    %orig(flashMode == 2 && isFlashIndicator ? 1 : flashMode);
+}
+
+%end
+
+%hook CUCaptureController
+
+- (BOOL)isCapturingVideo {
+    return isFlashIndicator ? NO : %orig;
 }
 
 %end
