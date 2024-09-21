@@ -1,6 +1,6 @@
 Record 'n' Torch
 ==========
 
-Toggle torch while recording video.
+Toggle flashlight LEDs while recording video.
 
 Compatible with iOS 12+

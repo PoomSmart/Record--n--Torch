@@ -6,7 +6,7 @@ Replaces: org.thebigboss.recordntorch, com.spicat.recordntorch
 Provides: org.thebigboss.recordntorch, com.spicat.recordntorch
 Version: 1.0.0
 Architecture: iphoneos-arm
-Description: Toggle torch while recording video.
+Description: Toggle flashlight LEDs while recording video.
 Author: PoomSmart
 Maintainer: PoomSmart
 Section: Tweaks
