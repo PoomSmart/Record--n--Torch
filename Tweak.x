@@ -34,6 +34,12 @@ BOOL isFlashIndicator = NO;
     %orig(flashMode == 2 && isFlashIndicator ? 1 : flashMode);
 }
 
+- (void)_updateTorchModeOnControllerForMode:(NSInteger)mode {
+    isFlashIndicator = YES;
+    %orig;
+    isFlashIndicator = NO;
+}
+
 %end
 
 %hook CUCaptureController
